@@ -25,24 +25,28 @@ function App() {
 
   const [todos, setTodos] = useState([]);
   const [fetchError, setFetchError] = useState(null);
+  
   useEffect(() => {
     const fechTodos = async () => {
       try{
         const res = await fetch(API_URL);
         if(!res.ok) throw Error('Did not received expected data');
         const listTodos = await res.json();
-        console.log(listTodos);
+        // console.log(listTodos);
         setTodos(listTodos);
         setFetchError(null);
       } catch (err) {
         // console.log(err.stack)
         setFetchError(err.message);
       }
-    }
+    }  
 
     (async () => await fechTodos())();
   }, []);
   
+  function useDataWithLogging() {
+
+  }
   const handleNameChange = () => {
     const names = ['Veera', 'Meena', 'Nandhini', 'Sangeetha', 'Aishwarya', 'Kavitha', 'Sharmila', 'Priyanka', 'Keerthana'];
     const int = Math.floor(Math.random()*5);

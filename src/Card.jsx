@@ -3,8 +3,7 @@ import React from 'react';
 import List from './List';
 
 function Card({todos}) {
-    
-
+    /* Leaf only has event binding */
     return (
 
         <main>
